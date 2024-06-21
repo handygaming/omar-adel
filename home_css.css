@@ -1,0 +1,187 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    direction: rtl;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+::selection{
+    background-color: black;
+    color: white;
+}
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    background-color: white;
+}
+::-webkit-scrollbar-thumb{
+    background-color: red;
+}
+body{
+    background-color: gainsboro;
+}
+.contenar{
+    width: 100%;
+    height: 100vh;
+    background-color: gray;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px auto auto 80px;
+    grid-template-areas:
+    "head"
+    "one"
+    "body"
+    "footer"
+    ;
+}
+.footer{
+    grid-area: footer;
+    background-color: black;
+    margin-top: 0px;
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+}
+.head{
+    grid-area: head;
+    background-color: black;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+.head-item{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-color: white;
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+.head-item::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 0;
+    transform-origin: right center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: all 0.5s;
+}
+.head-item:hover{
+    color: black;
+}
+.head-item:hover::before{
+    left: 100%;
+}
+.body{
+    grid-area: body;
+    background-color: gainsboro;
+    background-image: url("background.svg");
+    background-repeat: repeat;
+    background-size:contain;
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1.5fr;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+    ". title1 ."
+    ". box1 ."
+    ". box2 ."
+    ". box3 ."
+    ;
+}
+.one{
+    grid-area: one;
+    width: 100%;
+    height: auto;
+    background-color: red;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20%;
+    padding-right: 20%;
+    box-shadow: 0 5px 15px black;
+    z-index: 10;
+}
+#all-num{
+    padding: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 100px;
+    color: white;
+}
+.num1{
+    background-color: skyblue;
+}
+.num2{
+    background-color: red;
+}
+.num3{
+    background-color: purple;
+}
+#all-title{
+    background-color: red;
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 10px 30px black;
+}
+.title1{
+    grid-area: title1;
+}
+#all-box{
+    background-color: white;
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 7px 7px 30px black;
+}
+h2{
+    color: red;
+    font-size: 30px;
+    margin-top: 10px;
+}
+.box1{
+    grid-area: box1;
+}
+.box2{
+    grid-area: box2;
+}
+.box3{
+    grid-area: box3;
+    margin-bottom: 20px;
+}
+.playlist{
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+}
+@media (max-width: 678px) {
+   .body{
+    grid-template-columns: 20px 1fr 20px;
+    grid-template-rows: max-content;
+    grid-template-areas: 
+    ". title1 ."
+    ". box1 ."
+    ". box2 ."
+    ". box3 ."
+    ;
+    }
+}
