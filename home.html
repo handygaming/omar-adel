@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="home_css.css">
 </head>
 <body>
+    <div class="to_top" id="to_top">
+        up
+    </div>
     <div class="contenar">
         <div class="head">
             <a href="" class="head-item">home</a>
@@ -19,7 +22,7 @@
             <br>
             <h3>المسار الكامل باذن الله لإحتراف مجال ال Front-End Development بكل ما يحتويه المسار من دورات تعليمية وأدوات ونصائح ومواقع ومراجع تفيدك أثناء رحلة التعلم, إستعد للإبحار في رحلة التعلم :) وتأكد أنك إنتهيت من كل خطوة قبل الذهاب للخطوة التالية</h3>
         </div>
-        <div class="body">
+        <div class="body" id="body">
             <div class="title1" id="all-title">
                 <h1>تعلم المهارات الأساسية للوظيفة</h1>
             </div>
@@ -46,5 +49,23 @@
             <p>made by omar adel @2024</p>
         </div>
     </div>
+    <script>
+        let body = document.getElementById("body");
+        let to_top = document.getElementById("to_top");
+        window.onscroll = function(){
+            if(window.scrollY >= body.offsetTop){
+                to_top.style.display = "flex";
+            }
+            else{
+                to_top.style.display = "none";
+            }
+        }
+        to_top.onclick = function(){
+            window.scrollTo({
+                top:0,
+                behavior:"smooth",
+            })
+        }
+    </script>
 </body>
 </html>
